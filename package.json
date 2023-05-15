@@ -1,0 +1,17 @@
+{
+  "name": "piechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "graphql": "^16.6.0",
+    "mongoose": "^7.1.1"
+  }
+}

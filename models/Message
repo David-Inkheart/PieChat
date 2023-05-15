@@ -1,0 +1,16 @@
+const { model, Schema } = require('mongoose');
+
+const messageSchema = new Schema({
+  body: String,
+  createdAt: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  chatRoom: {
+    type: Schema.Types.ObjectId,
+    ref: 'ChatRoom'
+  }
+});
+
+module.exports = model('Message', messageSchema);
