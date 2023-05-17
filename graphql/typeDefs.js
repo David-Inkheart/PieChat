@@ -37,13 +37,16 @@ module.exports = gql`
     }
     type Query {
         getPosts: [Post]
+        getPost(postId: ID!): Post
+        getMessagesFromChatroom(chatroomId: ID!): [Message]
         getChatrooms: [Chatroom]
-        getMessages: [Message]
     }
     type Mutation{
         register(registerInput: RegisterInput): User!
         login(username: String!, password: String!): User!
+        createPost(body: String!): Post!
+        deletePost(postId: ID!): String!
+        createMessage(body: String!, chatroomId: ID!): Message!
         createChatroom(name: String!): Chatroom!
-        createMessage(username: String!, body: String!, chatroomId: ID!): Message!
     }
 `;

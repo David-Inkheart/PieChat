@@ -11,6 +11,7 @@ module.exports = {
     },
     Mutation: {
         ...usersResolvers.Mutation,
+        ...postsResolvers.Mutation,
         ...messagesResolvers.Mutation,
         ...chatroomResolvers.Mutation
     }
