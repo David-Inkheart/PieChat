@@ -1,41 +1,17 @@
 const { ApolloServer } = require('apollo-server');
-const gql = require('graphql-tag');
 const mongoose = require('mongoose');
 
-const Post = require('./models/Post');
+// Import graphql schema
+const typeDefs = require('./graphql/typeDefs');
+const resolvers = require('./graphql/resolvers');
 const { MONGODB } = require('./config.js');
-
-// define graphql schema
-const typeDefs = gql`
-    type Post {
-        id: ID!
-        body: String!
-        createdAt: String!
-        username: String!
-    }
-    type Query {
-        getPosts: [Post]
-    }
-`;
-
-// Define graphql resolver
-const resolvers = {
-    Query: {
-       async getPosts(){
-            try{
-                const Posts = await Post.find();
-                return Posts;
-            } catch(err){
-                throw new Error(err);
-            }
-        }
-    }
-}
+const verifyToken = require('./util/validators');
 
 // Create an instance of Apollo server
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
   });
 
 // connect to MongoDB Database and start the server
