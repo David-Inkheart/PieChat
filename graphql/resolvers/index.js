@@ -1,18 +1,26 @@
 const postsResolvers = require('./posts');
 const usersResolvers = require('./users');
+const commentsResolvers = require('./comments');
 const messagesResolvers = require('./messages');
-const chatroomResolvers = require('./chatroom');
+
 
 module.exports = {
+    Post: {
+        likeCount: (parent) => parent.likes.length,
+        commentCount: (parent) => parent.comments.length
+    },
     Query: {
         ...postsResolvers.Query,
         ...messagesResolvers.Query,
-        ...chatroomResolvers.Query
     },
     Mutation: {
         ...usersResolvers.Mutation,
         ...postsResolvers.Mutation,
+        ...commentsResolvers.Mutation,
         ...messagesResolvers.Mutation,
-        ...chatroomResolvers.Mutation
+    },
+    Subscription: {
+        ...messagesResolvers.Subscription,
+        ...postsResolvers.Subscription,
     }
 };

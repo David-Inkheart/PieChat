@@ -8,21 +8,30 @@ PieChat is a unique social media platform designed to bring people together over
 
 ## Features
 
-🗨️ **Chat and Connect**: Engage in lively conversations with other food lovers through our chat feature. Share your food experiences, recipes, and snack recommendations while connecting with like-minded individuals. 🍕🍣💬
-
 📝 **Create Posts**: Share your favorite food experiences, recipes, or snack recommendations with the PieChat community. Spice up your posts with mouthwatering pictures and get ready for the comments to roll in! 📸🔥
 
 👍 **Interact**: Like, comment, and react to posts from your fellow foodies. Show your appreciation for a tasty-looking dish or share your thoughts on the latest snack trends. Let the virtual food party begin! 🎉👏
+
+🔍 **Search**: Looking for a specific post or user? Use our search feature to find exactly what you're looking for. Search by keyword, username, or post title to quickly find the content you're interested in. 🔎🔍
+
+📱 **Responsive Design**: Access PieChat from any device, whether you're on your phone, tablet, or computer. Our responsive design ensures that you can enjoy the PieChat experience from anywhere, at any time. 📱💻🖥️
+
+🗝️ **Secure Authentication**: Sign up and log in to PieChat using your Google, Github or other social medial account. Our secure authentication process ensures that your information is protected and your account is safe. 🔒🔑
+
+
+## Future Features:
+
+🗨️ **Chat and Connect**: Engage in lively conversations with other food lovers through our chat feature. Share your food experiences, recipes, and snack recommendations while connecting with like-minded individuals. 🍕🍣💬 COMING SOON!
 
 ## How to Get Started
 
 1. **Sign Up**: Create your PieChat account and let the snacking adventure begin! 🎉🔐
 
-2. **Chat and Connect**: Engage in lively conversations with other food lovers through our chat feature. Share your love for snacks, discuss food trends, and exchange tasty recommendations. 🗨️💬
+2. **Create Posts**: Show off your culinary skills or share your favorite snack recommendations by creating enticing posts. Don't forget to garnish them with mouthwatering photos to make everyone's taste buds tingle! 🍔🍕📸
 
-3. **Create Posts**: Show off your culinary skills or share your favorite snack recommendations by creating enticing posts. Don't forget to garnish them with mouthwatering photos to make everyone's taste buds tingle! 🍔🍕📸
+3. **Connect and Interact**: Like, comment, and react to posts from other users. Engage in lively discussions, exchange snack ideas, and build connections within the vibrant PieChat community. 👥💬🍿
 
-4. **Connect and Interact**: Like, comment, and react to posts from other users. Engage in lively discussions, exchange snack ideas, and build connections within the vibrant PieChat community. 👥💬🍿
+4. **Search**: Looking for a specific snack-post or snacky-user? Use our search feature to find exactly what you're looking for. Search by keyword, username, or post title to quickly find the content you're interested in. 🔎🔍
 
 5. **Enjoy the Feast**: Immerse yourself in the world of tasty treats, delightful conversations, and a community that shares your passion for food. Indulge in the ultimate snacking experience with PieChat! 🥧🍿🎉
 
