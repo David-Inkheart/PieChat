@@ -1,24 +1,22 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Image } from 'semantic-ui-react';
 
 import PostCard from '../components/PostCard';
 
 function Home() {
   const { loading, data: { getPosts: posts } = {}, error } = useQuery(FETCH_POSTS_QUERY);
-  if (error) {
-    return <h1>Error: {error}</h1>
-  }
+  if (error) console.log(error);
 
   return (
     <Grid columns={3}>
-      <Grid.Row>
-        <h1>Recent Posts</h1>
+      <Grid.Row className='page-title'>
+        <h1>Recent PieSnaps</h1>
       </Grid.Row>
       <Grid.Row>
         {loading ? (
-          <h1>Loading posts..</h1>
+          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
         ) : (
           posts && posts.map((post) => (
             <Grid.Column key={post.id} style={{ marginBottom: 20 }}>

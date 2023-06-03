@@ -1,0 +1,14 @@
+.page-title {
+    display: block !important;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.like-comment-button {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    /* make item side by side */
+    flex-direction: row !important;
+}
