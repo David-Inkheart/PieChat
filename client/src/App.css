@@ -12,3 +12,8 @@
     /* make item side by side */
     flex-direction: row !important;
 }
+
+.form-container {
+    width: 400px;
+    margin: auto;
+}

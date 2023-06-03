@@ -12,7 +12,7 @@ function Home() {
   return (
     <Grid columns={3}>
       <Grid.Row className='page-title'>
-        <h1>Recent PieSnaps</h1>
+        <h1>Recent pieSnaps</h1>
       </Grid.Row>
       <Grid.Row>
         {loading ? (
