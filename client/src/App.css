@@ -1,3 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
 .page-title {
     display: block !important;
     text-align: center;
@@ -13,7 +20,76 @@
     flex-direction: row !important;
 }
 
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* make item side by side */
+    flex-direction: row;
+    margin-top: 100px;
+}
+
 .form-container {
     width: 400px;
     margin: auto;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+.app-tagline {
+    display: block !important;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-align: left;
+    margin-right: 20px;
+    margin-top: 0;
+}
+
+.app-tagline > h1 {
+    display: block;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5rem;
+    font-weight:bolder;
+    color: orange;
+}
+
+.app-tagline > p {
+    display: flex;
+}
+
+Form > Button {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-size: larger;
+    color: white;
+    background-color: orange;
+}
+
+@media only screen and (max-width: 1000px) {
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        width: 400px;
+        margin: auto;
+        font-size: 1rem;
+    }
+
+    .app-tagline {
+        display: block;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .app-tagline > p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
 }

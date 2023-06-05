@@ -26,7 +26,7 @@ function NavBar() {
           <Menu.Item>
             <Input icon='search' placeholder='Search...' />
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             name='messages'
             active={activeItem === 'messages'}
             onClick={handleItemClick}
@@ -39,7 +39,7 @@ function NavBar() {
             onClick={handleItemClick}
             as={Link}
             to="/friends"
-          />
+          /> */}
           <Menu.Item
             name='login'
             active={activeItem === 'login'}
