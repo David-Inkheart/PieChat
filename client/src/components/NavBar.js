@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Input, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../context/auth';
 
 function NavBar() {
+  const { user, logout } = useContext(AuthContext);
 
   const pathname = window.location.pathname;
   // console.log(pathname); e.g /signup
@@ -13,10 +15,50 @@ function NavBar() {
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
-    return (
+  const navBar = user ? (
       <Menu pointing size='massive' color='orange'>
-        <Menu.Item
-          name='home'
+          <Menu.Item
+            name='PieChat'
+            active={activeItem === 'home'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/"
+          />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          {/* <Menu.Item
+            name='messages'
+            active={activeItem === 'messages'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/messages"
+          />
+          <Menu.Item
+            name='friends'
+            active={activeItem === 'friends'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/friends"
+          /> */}
+          <Menu.Item
+          name={`welcome ${user.username}`}
+          active
+          as={Link}
+          to="/"
+          />
+          <Menu.Item
+            name='logout'
+            onClick={logout}
+          />
+        </Menu.Menu>
+      </Menu>
+    
+  ) : (
+      <Menu pointing size='massive' color='orange'>
+        <Menu.Item 
+          name='PieChat'
           active={activeItem === 'home'}
           onClick={handleItemClick}
           as={Link}
@@ -56,7 +98,8 @@ function NavBar() {
           />
         </Menu.Menu>
       </Menu>
-    )
+  )
+    return navBar;
   }
 
 export default NavBar;
