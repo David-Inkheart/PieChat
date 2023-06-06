@@ -19,7 +19,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 <Image
                 rounded
                 as={Link} to={`/posts/${id}`}
-                // floated='middle'
+                style={{ objectFit: 'cover', objectPosition: 'center' }}
                 // size='large'
                 src='https://images.unsplash.com/photo-1571865402713-98ba5a56f12b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
                 />
