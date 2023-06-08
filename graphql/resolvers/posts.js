@@ -1,4 +1,4 @@
-const { AuthenticationError, UserInputError, ApolloError } = require('apollo-server');
+const { AuthenticationError, UserInputError } = require('apollo-server');
 
 const Post = require('../../models/Post');
 const checkAuth = require('../../util/check-auth');
@@ -67,7 +67,7 @@ module.exports = {
           throw new UserInputError('Post not found');
         }
       } catch (err) {
-        throw new ApolloError(err);
+        throw new Error(err);
       }
     },
     async deletePost (_, { postId }, context) {

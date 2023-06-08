@@ -5,17 +5,11 @@ import moment from "moment";
 
 import { AuthContext } from "../context/auth";
 import LikeButton from "./LikeButton";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
 
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes }}){
     const { user } = useContext(AuthContext);
-
-    // function likePost(){
-    //     console.log('id of liked post: ', id)
-    // }
-
-    // function commentOnPost(){
-    //     console.log('commented on post with id: ', id)
-    // }
 
     return (
         <Card fluid>
@@ -30,7 +24,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 />
                 <Card.Header style={{ marginTop: 10 }}>
                     <Image
-                    as={Link} to={`/users/${id}`}
+                    as={Link} to={`/users/${username}`}
                     src='https://react.semantic-ui.com/images/wireframe/square-image.png' 
                     avatar />
                     <span>{username}</span>
@@ -62,20 +56,8 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                     {/* if user is logged in and the post belongs to the user, show delete and edit button */}
                     {user && user.username === username && (
                         <>
-                            <Button
-                                as="div"
-                                color="red"
-                                floated="right"
-                                onClick={() => console.log('Delete post')}
-                                icon="trash"
-                            />
-                            <Button
-                                as="div"
-                                color="teal"
-                                floated="right"
-                                onClick={() => console.log('Edit post')}
-                                icon="edit"
-                            />
+                            <DeleteButton postId={id} />
+                            <EditButton postId={id} postBody={body}/>
                         </>
                     )}
                 </div>

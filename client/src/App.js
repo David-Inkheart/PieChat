@@ -14,6 +14,8 @@ import Messages from './pages/Messages';
 import Friends from './pages/Friends';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SinglePost from './pages/SinglePost';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/register" element={<Register />} />
               </Route>
+              <Route exact path="/posts/:postId" element={<SinglePost />} />
+              <Route exact path="/users/:username" element={<UserProfile />} />
+              <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
           </Container>
       </Router>
