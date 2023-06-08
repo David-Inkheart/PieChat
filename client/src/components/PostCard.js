@@ -18,6 +18,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
             <Card.Content>
                 <Image
                 rounded
+                fluid
                 as={Link} to={`/posts/${id}`}
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
                 // size='large'

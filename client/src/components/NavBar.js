@@ -16,14 +16,22 @@ function NavBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const navBar = user ? (
-      <Menu pointing size='massive' color='orange'>
+      <Menu pointing size='massive' color='orange' stackable>
           <Menu.Item
             name='PieChat'
             active={activeItem === 'home'}
             onClick={handleItemClick}
             as={Link}
             to="/"
+            style={{ color: 'teal' }}
           />
+          <Menu.Item
+            name={`welcome ${user.username}`}
+            active
+            as={Link}
+            to="/"
+            style={{ color: 'teal' }}
+            />
         <Menu.Menu position='right'>
           <Menu.Item>
             <Input icon='search' placeholder='Search...' />
@@ -43,12 +51,6 @@ function NavBar() {
             to="/friends"
           /> */}
           <Menu.Item
-          name={`welcome ${user.username}`}
-          active
-          as={Link}
-          to="/"
-          />
-          <Menu.Item
             name='logout'
             onClick={logout}
           />
@@ -56,7 +58,7 @@ function NavBar() {
       </Menu>
     
   ) : (
-      <Menu pointing size='massive' color='orange'>
+      <Menu pointing size='massive' color='orange' stackable>
         <Menu.Item 
           name='PieChat'
           active={activeItem === 'home'}
@@ -65,9 +67,9 @@ function NavBar() {
           to="/"
         />
         <Menu.Menu position='right'>
-          <Menu.Item>
+          {/* <Menu.Item>
             <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
+          </Menu.Item> */}
           {/* <Menu.Item
             name='messages'
             active={activeItem === 'messages'}

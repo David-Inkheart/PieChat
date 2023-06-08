@@ -1,4 +1,4 @@
-const { ApolloError, AuthenticationError, UserInputError } = require('apollo-server');
+const { AuthenticationError, UserInputError, ApolloError } = require('apollo-server');
 
 const Post = require('../../models/Post');
 const checkAuth = require('../../util/check-auth');
@@ -32,7 +32,7 @@ module.exports = {
       const user = checkAuth(context);
 
       if (body.trim() === '') {
-        throw new Error('Post body must not be empty');
+        throw new UserInputError('Post body must not be empty');
       }
 
       const newPost = new Post({
@@ -128,5 +128,4 @@ module.exports = {
       subscribe: (_, __, { pubsub }) => pubsub.asyncIterator('NEW_MESSAGE')
     }
   }
-
 };
