@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
+import { AuthContext } from "../context/auth";
+import LikeButton from "./LikeButton";
+
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes }}){
+    const { user } = useContext(AuthContext);
 
-    function likePost(){
-        console.log('id of liked post: ', id)
-    }
+    // function likePost(){
+    //     console.log('id of liked post: ', id)
+    // }
 
-    function commentOnPost(){
-        console.log('commented on post with id: ', id)
-    }
+    // function commentOnPost(){
+    //     console.log('commented on post with id: ', id)
+    // }
 
     return (
         <Card fluid>
@@ -37,31 +41,43 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <div className='like-comment-button'>
-                <Button
-                className="like-button"
-                onClick={likePost}
-                color='teal'
-                // content='Like'
-                icon='thumbs up'
-                basic
-                label={{ basic: true, color: 'orange', pointing: 'left', content: likeCount }}
-                />
-                <Button
-                className="comment-button"
-                onClick={commentOnPost}
-                basic
-                color='teal'
-                // content='Comment'
-                icon='comments'
-                label={{
-                    as: 'a',
-                    basic: true,
-                    color: 'orange',
-                    pointing: 'left',
-                    content: commentCount,
-                }}
-                />
+                <div className='like-comment-button' stackable="true">
+                    <LikeButton user={user} post={{ id, likes, likeCount }} />
+                    <Button
+                    className="comment-button"
+                    // onClick={commentOnPost}
+                    basic
+                    color='teal'
+                    // content='Comment'
+                    icon='comments'
+                    label={{
+                        as: Link,
+                        to: `/posts/${id}`,
+                        basic: true,
+                        color: 'orange',
+                        pointing: 'left',
+                        content: commentCount,
+                    }}
+                    />
+                    {/* if user is logged in and the post belongs to the user, show delete and edit button */}
+                    {user && user.username === username && (
+                        <>
+                            <Button
+                                as="div"
+                                color="red"
+                                floated="right"
+                                onClick={() => console.log('Delete post')}
+                                icon="trash"
+                            />
+                            <Button
+                                as="div"
+                                color="teal"
+                                floated="right"
+                                onClick={() => console.log('Edit post')}
+                                icon="edit"
+                            />
+                        </>
+                    )}
                 </div>
             </Card.Content>
         </Card>
