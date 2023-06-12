@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 
 import { AuthContext } from "../context/auth";
-import LikeButton from "./LikeButton";
-import DeleteButton from "./DeleteButton";
-import EditButton from "./EditButton";
+import LikeButton from "./Buttons/LikeButton";
+import DeleteButton from "./Buttons/DeleteButton";
+import EditButton from "./Buttons/EditButton";
 
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes }}){
     const { user } = useContext(AuthContext);
@@ -20,7 +20,7 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 as={Link} to={`/posts/${id}`}
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
                 // size='large'
-                src='https://images.unsplash.com/photo-1571865402713-98ba5a56f12b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
+                src='https://images.unsplash.com/photo-1559622214-f8a9850965bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80'
                 />
                 <Card.Header style={{ marginTop: 10 }}>
                     <Image

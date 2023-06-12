@@ -25,17 +25,17 @@ function NavBar() {
             to="/"
             style={{ color: 'teal' }}
           />
+          <Menu.Item>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Item>
+          <Menu.Menu position='right'>
           <Menu.Item
             name={`welcome ${user.username}`}
             active
             as={Link}
             to="/"
             style={{ color: 'teal' }}
-            />
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item>
+          />
           {/* <Menu.Item
             name='messages'
             active={activeItem === 'messages'}

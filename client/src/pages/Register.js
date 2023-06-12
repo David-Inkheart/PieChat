@@ -45,7 +45,7 @@ function Register() {
         <p>Connect with people and engage other foodies in snacky conversations.</p>
     </div>
     <div className='form-container'>
-      <Segment inverted style={{ backgroundColor: 'aliceblue' }}>
+      <Segment inverted style={{ backgroundColor: 'white' }}>
         <Form
         onSubmit={onSubmit} 
         noValidate
@@ -90,7 +90,7 @@ function Register() {
             error={errors.confirmPassword ? true : false}
             onChange={onChange}
           />
-          <Button type="submit" style={{ background: 'orange', color: 'white', fontSize: '1.5rem' }} >
+          <Button type="submit" style={{ background: 'teal', color: 'white', fontSize: '1.5rem' }} >
             Sign up
           </Button>
         </Form>

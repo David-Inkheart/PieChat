@@ -6,9 +6,9 @@ import moment from 'moment';
 import { Link, useParams } from 'react-router-dom';
 
 import { AuthContext } from '../context/auth';
-import LikeButton from '../components/LikeButton';
-import DeleteButton from '../components/DeleteButton';
-import EditButton from '../components/EditButton';
+import LikeButton from '../components/Buttons/LikeButton';
+import DeleteButton from '../components/Buttons/DeleteButton';
+import EditButton from '../components/Buttons/EditButton';
 
 function SinglePost() {
 

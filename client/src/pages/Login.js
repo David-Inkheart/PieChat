@@ -43,7 +43,7 @@ function Login() {
         <p>Connect with people and engage other foodies in snacky conversations.</p>
     </div>
     <div className='form-container'>
-      <Segment inverted style={{ backgroundColor: 'aliceblue' }}>
+      <Segment inverted style={{ backgroundColor: 'white' }}>
         <Form
         onSubmit={onSubmit} 
         noValidate
@@ -67,13 +67,12 @@ function Login() {
             error={errors.password ? true : false}
             onChange={onChange}
           />
-          <Button className="ui fluid button" type="submit" style={{ background: 'orange', color: 'white', fontSize: '1.5rem' }} >
+          <Button className="ui fluid button" type="submit" style={{ background: 'teal', color: 'white', fontSize: '1.5rem' }} >
             Login
           </Button>
           <hr />
-          <p style={{ color: 'orange', fontSize: '1.4rem'}}>
-            first time here?
-            <a style={{ color:'teal', float: 'right' }}href='/register'>Create an account</a>
+            <p style={{ fontSize: '1.4rem', textAlign: 'center'  }}>
+            <a style={{ color:'orange' }} href='/register'>Create an account</a>
           </p>
         </Form>
         {Object.keys(errors).length > 0 && (

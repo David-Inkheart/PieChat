@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 import { useMutation } from '@apollo/react-hooks';
 import { Button, Confirm } from 'semantic-ui-react'
 
-import { FETCH_POSTS_QUERY } from '../util/graphql'
+import { FETCH_POSTS_QUERY } from '../../util/graphql'
 
 function DeleteButton({ postId, callback }) {
 
