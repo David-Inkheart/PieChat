@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import gql from 'graphql-tag';
-import { useQuery } from '@apollo/react-hooks';
-import { Grid, Image, Card, Button } from 'semantic-ui-react';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { Grid, Image, Card, Button, Form } from 'semantic-ui-react';
 import moment from 'moment';
 import { Link, useParams } from 'react-router-dom';
 
@@ -12,16 +12,28 @@ import EditButton from '../components/Buttons/EditButton';
 
 function SinglePost() {
 
-    const { postId } = useParams();
+  const { postId } = useParams();
 
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  console.log('postId: ', postId);
+  const [comment, setComment] = useState('');
+
+  // console.log('postId: ', postId);
 
   const { data: { getPost } = {} } = useQuery(FETCH_POST_QUERY, {
     variables: {
       postId
     },
+  });
+
+  const [submitComment] = useMutation(SEND_COMMENT_MUTATION, {
+    update() {
+      setComment('');
+    },
+    variables: {
+      postId,
+      body: comment
+    }
   });
 
   function deletePostCallback() {
@@ -98,7 +110,7 @@ function SinglePost() {
                       content: commentCount,
                     }}
                   />
-                  {/* if user is logged in and the post belongs to the user, show delete and edit button */}
+                  {/* if user is logged in and the post belongs to the user, show delete and edit button for post*/}
                   {user && user.username === username && (
                     <>
                       <DeleteButton postId={id} callback={deletePostCallback} />
@@ -108,14 +120,40 @@ function SinglePost() {
                 </div>
               </Card.Content>
             </Card>
+            {/* if user is logged in, show comment box */}
+            {user && (
+              <Card fluid>
+                <Card.Content>
+                  <p>Post a comment</p>
+                  <Form>
+                    <div className='ui action input fluid'>
+                      <input
+                        type='text'
+                        placeholder='Comment...'
+                        name='comment'
+                        value={comment}
+                        onChange={(event) => setComment(event.target.value)}
+                      />
+                      <Button
+                        type='submit'
+                        className='ui button teal'
+                        disabled={comment.trim() === ''}
+                        onClick={submitComment}
+                        icon='commenting'
+                      />
+                    </div>
+                  </Form>
+                </Card.Content>
+              </Card>
+            )}
             {comments.map((comment) => (
               <Card fluid key={comment.id}>
                 <Card.Content>
-                  {/* if user is logged in and the post belongs to the user, show delete and edit button */}
+                  {/* if user is logged in and the comment belongs to the user, show delete and edit button */}
                   {user && user.username === comment.username && (
                     <>
-                    <DeleteButton postId={id} commentId={comment.id} />
                       <EditButton postId={id} commentId={comment.id} commentBody={comment.body} />
+                      <DeleteButton postId={id} commentId={comment.id} />
                     </>
                   )}
                   <Card.Header>{comment.username}</Card.Header>
@@ -132,6 +170,21 @@ function SinglePost() {
 
   return postMarkup;
 }
+
+const SEND_COMMENT_MUTATION = gql`
+  mutation ($postId: ID!, $body: String!) {
+    createComment(postId: $postId, body: $body) {
+        id
+        comments {
+            id
+            body
+            createdAt
+            username
+        }
+        commentCount
+    }
+  }
+`;
 
 const FETCH_POST_QUERY = gql`
   query ($postId: ID!) {
