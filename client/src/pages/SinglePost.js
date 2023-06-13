@@ -128,7 +128,7 @@ function SinglePost() {
         </Grid.Row>
       </Grid>
     );
-  }
+}
 
   return postMarkup;
 }
