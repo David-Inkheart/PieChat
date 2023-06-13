@@ -56,7 +56,7 @@ function SinglePost() {
         <Grid.Row>
           <Grid.Column width={4}>
             <Image
-              src='https://images.unsplash.com/photo-1571865402713-98ba5a56f12b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80'
+              src='https://images.unsplash.com/photo-1559622214-f8a9850965bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80'
               size='large'
               rounded
               style={{ objectFit: 'cover', objectPosition: 'center' }}
@@ -108,6 +108,22 @@ function SinglePost() {
                 </div>
               </Card.Content>
             </Card>
+            {comments.map((comment) => (
+              <Card fluid key={comment.id}>
+                <Card.Content>
+                  {/* if user is logged in and the post belongs to the user, show delete and edit button */}
+                  {user && user.username === comment.username && (
+                    <>
+                    <DeleteButton postId={id} commentId={comment.id} />
+                      <EditButton postId={id} commentId={comment.id} commentBody={comment.body} />
+                    </>
+                  )}
+                  <Card.Header>{comment.username}</Card.Header>
+                  <Card.Meta>{moment(comment.createdAt).fromNow(true)}</Card.Meta>
+                  <Card.Description>{comment.body}</Card.Description>
+                </Card.Content>
+              </Card>
+            ))}
           </Grid.Column>
         </Grid.Row>
       </Grid>
