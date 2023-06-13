@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { Button } from 'semantic-ui-react';
 
 function LikeButton({ user, post: { id, likeCount, likes }}) {
     const [liked, setLiked] = useState(false);
+
+    // const Navigate = useNavigate();
 
     useEffect(() => {
         if(user && likes.find(like => like.username === user.username)){
@@ -34,10 +37,13 @@ function LikeButton({ user, post: { id, likeCount, likes }}) {
         />
         )
     ) : (
+        // redirect
         <Button
             className="like-button"
-            as={Link}
-            to="/login"
+            // onClick={() => Navigate('/login')}
+            onClick={() => window.location.href='/login'}
+            // as={Link}
+            // to="/login"
             color='teal'
             icon='thumbs up'
             basic

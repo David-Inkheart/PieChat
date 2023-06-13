@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import gql from 'graphql-tag';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { Grid, Image, Card, Button, Form } from 'semantic-ui-react';
@@ -16,6 +16,10 @@ function SinglePost() {
 
   const { user } = useContext(AuthContext);
 
+  const commentInputRef = useRef(null);
+
+  // const commentInputRef = createRef();
+
   const [comment, setComment] = useState('');
 
   // console.log('postId: ', postId);
@@ -29,6 +33,7 @@ function SinglePost() {
   const [submitComment] = useMutation(SEND_COMMENT_MUTATION, {
     update() {
       setComment('');
+      commentInputRef.current.blur();
     },
     variables: {
       postId,
@@ -133,6 +138,7 @@ function SinglePost() {
                         name='comment'
                         value={comment}
                         onChange={(event) => setComment(event.target.value)}
+                        ref={commentInputRef}
                       />
                       <Button
                         type='submit'

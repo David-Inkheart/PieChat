@@ -38,15 +38,17 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
                 <div className='like-comment-button' stackable="true">
                     <LikeButton user={user} post={{ id, likes, likeCount }} />
                     <Button
-                    className="comment-button"
-                    // onClick={commentOnPost}
-                    basic
-                    color='teal'
-                    // content='Comment'
-                    icon='comments'
-                    label={{
-                        as: Link,
-                        to: `/posts/${id}`,
+                        className="comment-button"
+                        as={Link}
+                        to={`/posts/${id}`}
+                        // onClick={commentOnPost}
+                        basic
+                        color='teal'    
+                        // content='Comment'
+                        icon='comments'
+                        label={{
+                        // as: Link,
+                        // to: `/posts/${id}`,
                         basic: true,
                         color: 'orange',
                         pointing: 'left',
