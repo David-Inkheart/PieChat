@@ -48,11 +48,11 @@ function createPostCallback(){
   return (
     <>
         <Form onSubmit={onSubmit} success>
-            <h2 style={{color: 'orange', textAlign: 'center'}}>Create a pieSnap:</h2>
+            {/* <h2 style={{color: 'orange', textAlign: 'center'}}>Create a pieSnap:</h2> */}
             <Form.Field>
                 <Form.TextArea
                     style={{ minHeight: 300 }}
-                    placeholder="Hey guys, you won't believe how good this tasted!"
+                    placeholder="Share your pieSnap..."
                     name="body"
                     onChange={onChange}
                     value={values.body}

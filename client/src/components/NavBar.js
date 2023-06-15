@@ -17,14 +17,27 @@ function NavBar() {
 
   const navBar = user ? (
       <Menu pointing size='massive' color='orange' stackable>
-          <Menu.Item
+          {/* <Menu.Item
             name='PieChat'
             active={activeItem === 'home'}
             onClick={handleItemClick}
             as={Link}
             to="/"
             style={{ color: 'teal' }}
+          /> */}
+          <Menu.Item
+            active={activeItem === 'home'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/"
+            style={{ padding: 2 }} // Remove default padding to ensure the image fits properly
+          >
+          <img
+            src='/images/piechat.png'
+          alt="Logo"
+          style={{ height: '100%' }}
           />
+          </Menu.Item>
           <Menu.Item>
             <Input icon='search' placeholder='Search...' />
           </Menu.Item>
@@ -36,20 +49,6 @@ function NavBar() {
             to="/"
             style={{ color: 'teal' }}
           />
-          {/* <Menu.Item
-            name='messages'
-            active={activeItem === 'messages'}
-            onClick={handleItemClick}
-            as={Link}
-            to="/messages"
-          />
-          <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={handleItemClick}
-            as={Link}
-            to="/friends"
-          /> */}
           <Menu.Item
             name='logout'
             onClick={logout}
@@ -59,31 +58,23 @@ function NavBar() {
     
   ) : (
       <Menu pointing size='massive' color='orange' stackable>
-        <Menu.Item 
+        {/* <Menu.Item 
           name='PieChat'
           active={activeItem === 'home'}
           onClick={handleItemClick}
           as={Link}
           to="/"
-        />
+        /> */}
+        <Menu.Item
+            active={activeItem === 'home'}
+            onClick={handleItemClick}
+            as={Link}
+            to="/"
+            style={{ padding: 1 }} // Remove default padding to ensure the image fits properly
+          >
+            <img src='/images/piechat.png' alt="Logo" style={{ height: '100%' }} />
+        </Menu.Item>
         <Menu.Menu position='right'>
-          {/* <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
-          </Menu.Item> */}
-          {/* <Menu.Item
-            name='messages'
-            active={activeItem === 'messages'}
-            onClick={handleItemClick}
-            as={Link}
-            to="/messages"
-          />
-          <Menu.Item
-            name='friends'
-            active={activeItem === 'friends'}
-            onClick={handleItemClick}
-            as={Link}
-            to="/friends"
-          /> */}
           <Menu.Item
             name='login'
             active={activeItem === 'login'}

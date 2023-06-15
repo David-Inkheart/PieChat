@@ -15,7 +15,7 @@ function Home() {
   return (
     <Grid columns={3} stackable={true}>
       <Grid.Row className='page-title'>
-        <h1 style={{ color: 'teal' }}>Recent pieSnaps</h1>
+        <h1 style={{ color: 'orange' }}>Recent pieSnaps</h1>
       </Grid.Row>
       <Grid.Row>
         {user && (
