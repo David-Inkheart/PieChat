@@ -7,6 +7,7 @@ import { AuthContext } from "../context/auth";
 import LikeButton from "./Buttons/LikeButton";
 import DeleteButton from "./Buttons/DeleteButton";
 import EditButton from "./Buttons/EditButton";
+import MyPopup from "../util/MyPopup";
 
 function PostCard({ post: { body, createdAt, id, username, likeCount, commentCount, likes }}){
     const { user } = useContext(AuthContext);
@@ -37,24 +38,25 @@ function PostCard({ post: { body, createdAt, id, username, likeCount, commentCou
             <Card.Content extra>
                 <div className='like-comment-button' stackable="true">
                     <LikeButton user={user} post={{ id, likes, likeCount }} />
-                    <Button
-                        className="comment-button"
-                        as={Link}
-                        to={`/posts/${id}`}
-                        // onClick={commentOnPost}
-                        basic
-                        color='teal'    
-                        // content='Comment'
-                        icon='comments'
-                        label={{
-                        // as: Link,
-                        // to: `/posts/${id}`,
-                        basic: true,
-                        color: 'orange',
-                        pointing: 'left',
-                        content: commentCount,
-                    }}
-                    />
+                    <MyPopup content='Comment on post'>
+                        <Button
+                            className="comment-button"
+                            as={Link}
+                            to={`/posts/${id}`}
+                            // onClick={commentOnPost}
+                            basic
+                            color='teal'    
+                            icon='comments'
+                            label={{
+                            // as: Link,
+                            // to: `/posts/${id}`,
+                            basic: true,
+                            color: 'orange',
+                            pointing: 'left',
+                            content: commentCount,
+                            }}
+                        />
+                    </MyPopup>
                     {/* if user is logged in and the post belongs to the user, show delete and edit button */}
                     {user && user.username === username && (
                         <>

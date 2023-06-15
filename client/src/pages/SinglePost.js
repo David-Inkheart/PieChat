@@ -9,6 +9,7 @@ import { AuthContext } from '../context/auth';
 import LikeButton from '../components/Buttons/LikeButton';
 import DeleteButton from '../components/Buttons/DeleteButton';
 import EditButton from '../components/Buttons/EditButton';
+import MyPopup from '../util/MyPopup';
 
 function SinglePost() {
 
@@ -100,6 +101,7 @@ function SinglePost() {
               <Card.Content extra>
                 <div className='like-comment-button' stackable='true'>
                   <LikeButton user={user} post={{ id, likes, likeCount }} />
+                  <MyPopup content='Comment on post'>
                   <Button
                     className='comment-button'
                     basic
@@ -114,7 +116,8 @@ function SinglePost() {
                       pointing: 'left',
                       content: commentCount,
                     }}
-                  />
+                    />
+                  </MyPopup>
                   {/* if user is logged in and the post belongs to the user, show delete and edit button for post*/}
                   {user && user.username === username && (
                     <>

@@ -30,7 +30,7 @@ function NavBar() {
             onClick={handleItemClick}
             as={Link}
             to="/"
-            style={{ padding: 2 }} // Remove default padding to ensure the image fits properly
+            style={{ padding: 3 }} // Remove default padding to ensure the image fits properly
           >
           <img
             src='/images/piechat.png'

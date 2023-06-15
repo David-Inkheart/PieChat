@@ -3,6 +3,8 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
 import { Button, Confirm } from 'semantic-ui-react';
 
+import MyPopup from '../../util/MyPopup';
+
 function EditButton({ postId, commentId, postBody, commentBody }) {
   const [confirmOpen, setConfirmOpen] = useState(false);
 
@@ -35,13 +37,16 @@ function EditButton({ postId, commentId, postBody, commentBody }) {
 
   return (
     <>
-      <Button
-        as="div"
-        color="teal"
-        floated="right"
-        onClick={() => setConfirmOpen(true)}
-        icon="edit"
-      />
+      <MyPopup
+        content={commentId ? 'Edit comment' : 'Edit post'} >
+        <Button
+          as="div"
+          color="teal"
+          floated="right"
+          onClick={() => setConfirmOpen(true)}
+          icon="edit"
+        />
+      </MyPopup>
       <Confirm
         open={confirmOpen}
         onCancel={() => setConfirmOpen(false)}
