@@ -16,7 +16,8 @@ function NavBar() {
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
   const navBar = user ? (
-      <Menu pointing size='massive' color='orange' stackable>
+    <Menu pointing size='massive' color='orange' stackable>
+     {/* @TODO: Add a link to the home page */}
           {/* <Menu.Item
             name='PieChat'
             active={activeItem === 'home'}
